@@ -1,0 +1,15 @@
+[id='dmn-decision-tables-ref']
+= Decision Table Hit Policies
+
+Hit policies define how to reach an outcome when multiple rules apply to a single situation. Decision modelers select one of five methods for reaching an outcome and then specify that method by placing an indicator in the table’s upper-left corner. The five policies are:
+
+* *Unique (indicator: U):* Permits only one rule to match; any overlap represents an error.
+* *Any (A):* Permits rules with identical output values to overlap. Other overlap would create inconsistencies in the table, creating an error.
+* *Priority (P):* Permits overlapping rules with different output values only if the hit policy establishes a priority order in the table output column heading. Priority tables that omit valid outputs are in error.
+* *First (F):* Uses the first acceptable rule, based on the listed order of rules.
+* *Collect (C+, C>, C<, C#):* Aggregates output from multiple rules based on an aggregation code.
+** *Collect ( C ):* Aggregates values in an arbitrary list.
+** *Collect Sum (C+):* Outputs the sum of all collected values. Values must be numeric.
+** *Collect Min (C<):* Outputs the smallest numeric value.
+** *Collect Max (C>):* Outputs the largest numeric value.
+** *Collect Count (C#):* Outputs the number of matching rules.

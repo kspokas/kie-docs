@@ -1,0 +1,9 @@
+[id='dmn-elements-ref']
+= DMN Elements
+
+DMN models consist of the following four elements:
+
+* *Decisions:* Points in the model where one or several inputs determine an output based on decision logic.
+* *Input data:* Information necessary to determine an output. These are generally business-level concepts or objects relevant to the business, such as a restaurant’s peak business hours, staff availability, and a requirement that at least one master chef be working at all times.
+* *Business knowledge models:* Reusable pieces of decision logic. Decisions that have the same logic but depend on different sub-inputs or sub-decisions will use business knowledge models to determine which proper procedure to follow.
+* *Knowledge sources:* External regulations, documents, committees, policies, and so on that shape decision logic. These are references to real-world factors rather than executable business rules.
