@@ -1,20 +1,20 @@
 [id='dmn-invocation-options-con']
 = Options for invoking a DMN model
 
-To invoke a decision that is defined in a DMN file, it should first be packaged in a "Knowledge Container." A specific version of Knowledge Components comes in what is known as a Knowledge JAR (KJAR), which you can either deploy to the KIE Execution server for remote access, or manipulate directly as a dependency of the calling application. Covering all options for creating and deploying these knowledge packages is outside the scope of this document, although most are similar to other knowledge assets (e.g., a Drools rule file, or jBPM process definition). Once you have packaged or deployed the decision, you have several options for invoking it.
+To invoke a decision that is defined in a DMN file, it should first be packaged in a knowledge container. A specific version of Knowledge Components comes in what is known as a Knowledge JAR (KJAR), which you can either deploy to the KIE execution server for remote access, or manipulate directly as a dependency of the calling application. Covering all options for creating and deploying these knowledge packages is outside the scope of this document, although most are similar to other knowledge assets (for example, a Drools rule file or jBPM process definition). After you have packaged or deployed the decision, you have several options for invoking it.
 
 == Executing DMN services embedded in the application
 
-A knowledge container is local when the knowledge assets are either embedded directly into the calling program, or are physically pulled in using Maven coordinates for the KJAR at runtime.
+A knowledge container is local when the knowledge assets are either embedded directly into the calling program, or are physically pulled in using Maven coordinates for the KJAR.
 
-Embedding knowledge assets directly into a project makes sense if there is a tight relationship between the version of the code and the version of the DMN definition. In other words, any changes to the decision should only take effect once you have intentionally updated and redeployed the application. One potential benefit of this approach is that proper operation does not rely on any external dependencies to the runtime, which can be a limitation of locked down environments.
+You should embed knowledge assets directly into a project if there is a tight relationship between the version of the code and the version of the DMN definition. Any changes to the decision should only take effect after you have intentionally updated and redeployed the application. One potential benefit of this approach is that proper operation does not rely on any external dependencies to the runtime, which can be a limitation of locked down environments.
 
-Using Maven coordinates allows further flexibility in that the specific version of the Decision can dynamically change using a system property for example, and can even be periodically scanned for updates and automatically updated. This introduces an external dependency on the deploy time of the service, but executes the decision locally reducing reliance on an external service being available during runtime.
+Using Maven coordinates enables further flexibility because the specific version of the decision can dynamically change, for example by using a system property, and it can be periodically scanned for updates and automatically updated. This introduces an external dependency on the deploy time of the service, but executes the decision locally, reducing reliance on an external service being available during runtime.
 
-== Calling DMN service on remote server using JAVA
+== Calling a DMN service on a remote server using Java
 
-The KIE Remote API client provides a lightweight approach to invoking a remote DMN service either through the REST or JMS interfaces of the KIE Execution Server. This approach reduces the number of runtime dependencies necessary to interact with a knowledge base. Decoupling the calling code from the decision definition also increases flexibility by allowing them to iterate independently at the appropriate pace.
+The KIE remote API client provides a lightweight approach to invoking a remote DMN service either through the REST or JMS interfaces of the KIE execution server. This approach reduces the number of runtime dependencies necessary to interact with a knowledge base. Decoupling the calling code from the decision definition also increases flexibility by enabling them to iterate independently at the appropriate pace.
 
-== Calling DMN service on remote server using REST APIs directly
+== Calling a DMN service on a remote server using REST APIs directly
 
-Finally, directly interacting with the REST endpoints of the KIE Execution Server provides the most separation between the calling code and the decision logic definition. The calling code is completely free of direct dependencies, and you can implement it in an entirely different development platform such as node.js, or .net.
+Directly interacting with the REST endpoints of the KIE execution server provides the most separation between the calling code and the decision logic definition. The calling code is completely free of direct dependencies, and you can implement it in an entirely different development platform such as node.js or .net.

@@ -4,6 +4,7 @@
 DMN models consist of the following four elements:
 
 * *Decisions:* Points in the model where one or several inputs determine an output based on decision logic.
-* *Input data:* Information necessary to determine an output. These are generally business-level concepts or objects relevant to the business, such as a restaurant’s peak business hours, staff availability, and a requirement that at least one master chef be working at all times.
-* *Business knowledge models:* Reusable pieces of decision logic. Decisions that have the same logic but depend on different sub-inputs or sub-decisions will use business knowledge models to determine which proper procedure to follow.
-* *Knowledge sources:* External regulations, documents, committees, policies, and so on that shape decision logic. These are references to real-world factors rather than executable business rules.
+* *Input data:* Information necessary to determine an output. This information usually includes business-level concepts or objects relevant to the business, such as a restaurant’s peak business hours, staff availability, and a requirement that at least one master chef be working at all times.
+* *Business knowledge models:* Reusable pieces of decision logic. Decisions that have the same logic but depend on different sub-inputs or sub-decisions use business knowledge models to determine which proper procedure to follow.
+* *Knowledge sources:* External regulations, documents, committees, policies, and so on that shape decision logic. Knowledge sources are references to real-world factors rather than executable business rules.
+* *Decision service:* A decision service is a process notation that calls decision logic from outside of the business process model. Services remain separate in part so that DMN can work with Business Process Model and Notation (BPMN), which is a graphical notation. Furthermore, you can reuse the decoupled logic for other workflows with similar decision points.

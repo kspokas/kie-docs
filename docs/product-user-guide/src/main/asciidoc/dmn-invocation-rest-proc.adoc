@@ -1,7 +1,7 @@
 [#dmn-invocation-rest-proc]
 = Calling a DMN service on a remote server using REST APIs
 
-This section explains how to interact with a KIE Container from any client type using the REST endpoints. The examples here demonstrate using *nix style "curl" commands but provide relevant information to adapt to any Rest client.
+This section explains how to interact with a KIE Container from any client type using the REST endpoints. The examples here demonstrate using *nix style "curl" commands but provide relevant information to adapt to any REST client.
 
 .Prerequisites
 
@@ -10,61 +10,67 @@ This section explains how to interact with a KIE Container from any client type 
 * Knowing the container ID of the KIE Container containing the DMN model. If using more than one model, you must also know the model namespace and model name of the specific model being invoked.
 
 .Procedure
-. Determine base URL for accessing the Rest endpoints. This requires knowing the following values (with the default local deployment values as an example):
-
+. Determine the base URL for accessing the REST endpoints. This requires knowing the following values (with the default local deployment values as an example):
++
 * Host (localhost)
 * Port (8080)
 * Root context (kie-server)
-* Base Rest path (services/rest/server)
-
+* Base REST path (services/rest/server)
++
 Local deployment example URL:
++
 [source]
 ----
 http://localhost:8080/kie-server/services/rest/server
 ----
 
-. Determine user authentication needs.
-
-When users are defined directly in the KIE Execution server configuration, BasicAuth is used which requires the username and password.  Successful requests require that the user have the "kie-server" role.
-
-Example curl request with credentials:
+. Determine user authentication requirements. +
++
+When users are defined directly in the KIE Execution Server configuration, BasicAuth is used which requires the username and password.  Successful requests require that the user have the kie-server role.
++
+The following example demonstrates how to add credentials to a curl request:
++
 [source]
 ----
 curl -u username:password <request>
 ----
-
-If the KIE Execution server is configured with KeyCloak, the request must include a Bearer Token:
++
+If the KIE Execution Server is configured with KeyCloak, the request must include a bearer token:
++
 [source,java]
 ----
 curl -H "Authorization: bearer $TOKEN" <request>
 ----
 
-. Specify the format of the request and/or response.
-
-The Rest endpoints work with both JSON and XML formats and are set using request headers:
-
-.Header parameters to specify JSON format:
+. Specify the format of the request and response. +
++
+The REST endpoints work with both JSON and XML formats and are set using request headers, for example:
++
+.JSON
 [source]
 ----
 curl -H "accept: application/json" -H "content-type: application/json"
 ----
-
-.Header parameters to specify XML format:
++
+.XML
 [source]
 ----
 curl -H "accept: application/xml" -H "content-type: application/xml"
 ----
 
 . (Optional) Query the container for a list of deployed decision models.
-*[GET]* /containers/$containerId/dmn
-
-Putting it altogether for a local install with the Age Classification sample:
+*[GET]* `/containers/$containerId/dmn`
++
+.Age classification walkthough
+This example demonstrates how to assemble the commands for a local install with the Age Classification sample:
++
 [source]
 ----
 curl -u krisv:krisv -H "accept: application/xml" -X GET "http://localhost:8080/kie-server/services/rest/server/containers/MovieDMNContainer/dmn"
 ----
-
++
 Sample XML output:
++
 [source,xml]
 ----
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -84,8 +90,9 @@ Sample XML output:
     </dmn-model-info-list>
 </response>
 ----
-
++
 Sample JSON output:
++
 [source,json]
 ----
 {
@@ -107,11 +114,12 @@ Sample JSON output:
 }
 ----
 
-. Executing the model
-
-*[POST]* /containers/$containerId/dmn
-
+. Execute the model.
++
+*[POST]* `/containers/$containerId/dmn`
++
 Putting it all together for a local install with the Age Classification sample:
++
 [source]
 ----
 curl -u krisv:krisv -H "accept: application/json" -H "content-type: application/json" -X POST "http://localhost:8080/kie-server/services/rest/server/containers/MovieDMNContainer/dmn" -d "{ \"model-namespace\" : \"http://www.redhat.com/_c7328033-c355-43cd-b616-0aceef80e52a\", \"model-name\" : \"dmn-movieticket-ageclassification\", \"decision-name\" : [ ], \"decision-id\" : [ ], \"dmn-context\" : {\"Age\" : 66}}"
@@ -146,6 +154,7 @@ curl -u krisv:krisv -H "accept: application/json" -H "content-type: application/
 ----
 
 Regardless of format, the request requires:
+
 * Model namespace
 * Model name
 * Context object containing input values

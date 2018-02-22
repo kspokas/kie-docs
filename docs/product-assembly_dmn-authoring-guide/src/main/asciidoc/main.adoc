@@ -2,21 +2,19 @@
 
 include::product-shared-docs/document-attributes.adoc[]
 
-= Designing decision services using DMN
+= Designing decision services using Decision Modeling Notation
 // Context attribute is assembly specific and enables module reuse between assemblies.
 :imagesdir: topics/product-shared-docs/images
 :context: dmn-authoring-guide
 include::product-shared-docs/author-group.adoc[]
 
 // Purpose statement for the assembly
-Decision Modeling Notation (DMN) is an open standard by Object Management Group (OMG) for modeling decisions based on a specific set of rules or preferences. DMN models diagram business decisions from start to finish, with each decision point drawing logic from custom tables known as Decision Tables.
+Decision Modeling Notation (DMN) is an open standard created by the Object Management Group (OMG). It is used to model decisions based on a specific set of rules or preferences. DMN models diagram business decisions from start to finish, with each decision point drawing logic from custom tables known as decision tables.
 
 //.Prerequisite
 
 // Modules - concepts, procedures, refs, etc.
 include::product-user-guide/dmn-elements-ref.adoc[leveloffset=+1]
-
-include::product-user-guide/dmn-decision-service-ref.adoc[leveloffset=+2]
 
 include::product-user-guide/dmn-feel-overview-ref.adoc[leveloffset=+2]
 

@@ -13,9 +13,9 @@ This section explains how to interact with a KIE Container deployed on a KIE Exe
 
 .Procedure
 . Instantiate a KieServicesClient instance with the appropriate connection information.
-
++
 The following snippet illustrates establishing this configuration:
-
++
 .Instantiating KieServicesClient
 [source,java]
 ----
@@ -26,31 +26,26 @@ conf.setMarshallingFormat(MarshallingFormat.JSON);  // <2>
 
 KieServicesClient kieServicesClient = KieServicesFactory.newKieServicesClient(conf);
 ----
-<1> Remote Kie execution server connection
-<2> Marshalling format is an instance of org.kie.server.api.marshalling.MarshallingFormat
-
-Here are some details on the connection information required:
+Supply the connection information in Line 1:
++
 * Example URL: http://localhost:8080/kie-server/services/rest/server
-* The credentials should reference a user with the "kie-server" role
+* The credentials should reference a user with the “kie-server” role.
++
+In Line 2, Marshalling format is an instance of org.kie.server.api.marshalling.MarshallingFormat. It controls whether the messages will be JSON or XML. Options for Marshalling format are JSON, JAXB, or XSTREAM.
 
-Options for the marshaling format include:
-* JSON
-* JAXB (XML)
-* XSTREAM (XML)
-
-. Obtain a DMNServicesClient from the KIE Server Java Client connected to the related KIE Execution Server. Obtain this by invoking the method getServicesClient() on the KIE Server Java client instance, as shown in the following snippet:
-
+. Obtain a DMNServicesClient from the KIE server Java client connected to the related KIE execution server by invoking the method getServicesClient() on the KIE Server Java client instance, as shown in the following example:
++
 [source,java]
 ----
 DMNServicesClient dmnClient = kieServicesClient.getServicesClient(DMNServicesClient.class );
 ----
-
++
 The dmnClient can now execute decision services on the KIE Execution Server.
 
 . Execute the decision services for the desired model.
-
++
 The following snippet provides a basic example:
-
++
 [source,java]
 ----
 for (Integer age : Arrays.asList(1,12,13,64,65,66)) { // <1>
@@ -68,17 +63,19 @@ for (Integer age : Arrays.asList(1,12,13,64,65,66)) { // <1>
 	}
 }
 ----
-<1> Instantiate a new DMN Context to be the input for the model evaluation.
-<2> Assign input variables for the input DMN Context.
-<3> Evaluate all the DMN Decisions defined in the DMN model where $containerId is the ID of the container where the kjar containing the DMN model is deployed, $modelNamespace the namespace for the model, $modelName is the name for the model.
-<4> This sample loops through several values to invoke the Age Classification example.
-<5> The DMN Result object is available from the server response.
+
+Note that this example loops through several values to invoke the Age Classification example.
+
+. Instantiate a new DMN Context to be the input for the model evaluation.
+. Assign input variables for the input DMN Context.
+. Evaluate all the DMN Decisions defined in the DMN model where $containerId is the ID of the container where the kjar containing the DMN model is deployed, $modelNamespace the namespace for the model, $modelName is the name for the model.
+. The DMN Result object is available from the server response.
 
 At this point, the dmnResult contains all the decision results from the evaluated DMN model.
 
 NOTE: It is possible to execute only a specific DMN Decision in the model, by making use of alternative methods of the DMNServicesClient.
 
-TIP: If the KIE Container only contains one DMN Model, it is possible to omit $modelnamespace and $modelname; by default the Kie Container will reference the only model available to execute the decision services.
+TIP: If the KIE Container only contains one DMN Model, it is possible to omit $modelnamespace and $modelname because the KIE API will select it by default.
 
 .Related Information
 

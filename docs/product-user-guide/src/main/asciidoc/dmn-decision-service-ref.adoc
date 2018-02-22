@@ -1,4 +1,0 @@
-[id='dmn-decision-service-ref']
-= What is a DMN Decision Service?
-
-A decision service is a process notation that calls decision logic from outside the business process model. Services remain separate in part so that DMN can work with Business Process Model and Notation (BPMN), which is a purely graphical notation. Further, you can reuse the decoupled logic for other workflows with similar decision points.
