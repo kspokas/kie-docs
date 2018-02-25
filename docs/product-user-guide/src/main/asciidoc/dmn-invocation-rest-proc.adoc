@@ -222,3 +222,7 @@ Regardless of format, the request requires:
       </dmn-evaluation-result>
 </response>
 ----
+
+.Related Information
+
+* {URL_PACKAGING_DEPLOYING_DECISION_SERVICE}[{PACKAGING_DEPLOYING_DECISION_SERVICE}]

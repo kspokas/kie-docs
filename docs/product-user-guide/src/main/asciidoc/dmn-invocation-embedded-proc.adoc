@@ -89,3 +89,7 @@ Age 64 Decision 'AgeClassification' : Adult
 Age 65 Decision 'AgeClassification' : Senior
 Age 66 Decision 'AgeClassification' : Senior
 ----
+
+.Related Information
+
+* {URL_PACKAGING_DEPLOYING_DECISION_SERVICE}[{PACKAGING_DEPLOYING_DECISION_SERVICE}]

@@ -79,10 +79,4 @@ TIP: If the KIE Container only contains one DMN Model, it is possible to omit $m
 
 .Related Information
 
-* Installing the KIE Server. Ref. <<_installing_the_kie_server>>
-
-* Creating a Kie Container. Ref. <<_creating_a_kie_container>>
-
-* Kie Server Java Client API, describes also the required dependencies. Ref. <<_kie_server_java_client_api>>
-
-* Available Clients for the Decision Server. Ref. <<_available_clients_for_the_decision_server>>
+* {URL_PACKAGING_DEPLOYING_DECISION_SERVICE}[{PACKAGING_DEPLOYING_DECISION_SERVICE}]
