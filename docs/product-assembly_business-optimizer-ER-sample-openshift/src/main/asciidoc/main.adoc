@@ -1,0 +1,30 @@
+[id='assembly_optimizer-running-employee-rostering-openshift']
+
+include::product-shared-docs/document-attributes.adoc[]
+
+= Running the employee roster sample for Business Optimizer
+// Context attribute is assembly specific and enables module reuse between assemblies.
+:imagesdir: topics/product-shared-docs/images
+:context: running-employee-rostering-openshift
+include::product-shared-docs/author-group.adoc[]
+
+
+// Purpose statement for the assembly
+As a business rules developer, you can test and interact with the {PLANNER} functionality by quickly deploying the `employee-rostering` sample project included in the {PRODUCT} distribution to OpenShift.
+
+.Prerequisite
+* {PRODUCT} has been downloaded including the add-ons,  configured for {PLANNER} and deployed in {CENTRAL}.
+* An Openshift environment is available and accessible for deploying applications, for example
+** Local OpenShift Origin installation
+** OpenShift Dedicated instance
+** Account on OpenShift Online
+
+// Modules - concepts, procedures, refs, etc.
+//include::product-user-guide/rules-authoring-assets-ref.adoc[leveloffset=+1]
+
+
+//== Next steps
+//{URL_PACKAGING_DEPLOYING_DECISION_SERVICE}[_{PACKAGING_DEPLOYING_DECISION_SERVICE}_]
+
+// Versioning info
+include::product-shared-docs/versioning-information.adoc[]
