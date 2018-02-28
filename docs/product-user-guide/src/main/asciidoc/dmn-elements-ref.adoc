@@ -1,7 +1,7 @@
 [id='dmn-elements-ref']
 = DMN Elements
 
-DMN models consist of the following four elements:
+DMN models consist of the following five elements:
 
 * *Decisions:* Points in the model where one or several inputs determine an output based on decision logic.
 * *Input data:* Information necessary to determine an output. This information usually includes business-level concepts or objects relevant to the business, such as a restaurant’s peak business hours, staff availability, and a requirement that at least one master chef be working at all times.
