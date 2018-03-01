@@ -1,0 +1,4 @@
+[id='optashift-ER-overview-con']
+= Overview of the employee rostering demonstration
+
+Optimal employee rostering requires alignment between a number of variables such as number of shifts, necessary skills during each shift, tasks required during a shift, and employee availability. Specify inputs for these variables using the tabs along the top of the OpenShift window.

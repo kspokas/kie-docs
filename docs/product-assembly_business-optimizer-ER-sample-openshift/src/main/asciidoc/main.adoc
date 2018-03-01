@@ -20,7 +20,8 @@ As a business rules developer, you can test and interact with the {PLANNER} func
 ** Account on OpenShift Online
 
 // Modules - concepts, procedures, refs, etc.
-//include::product-user-guide/rules-authoring-assets-ref.adoc[leveloffset=+1]
+include::product-business-resource-planner-guide/optashift-ER-openshift-deploy-proc.adoc[levelset=+1]
+include::product-business-resource-planner-guide/optashift-ER-overview-con.adoc[leveloffset=+1]
 
 
 //== Next steps

@@ -1,0 +1,21 @@
+[#optashift-ER-openshift-deploy-proc]
+= Installing and running the employee rostering demonstration on Openshift
+
+This section describes deploying the {PRODUCT} Employee Rostering example application to an Openshift instance.
+
+.Prerequisites
+
+* Access to OpenShift <version>+ instance
+** "oc cluster up"
+** Openshift Origin
+** Openshift Online
+* "oc" tools avaiable on the commandline
+* Downloaded the {Product} add-ons
+
+.Procedure
+. Deploy using source 2 images
+
+.Procedure
+. Deploy with pre-built binary
+
+.Related Information
