@@ -2,3 +2,102 @@
 = Overview of the employee rostering demonstration
 
 Optimal employee rostering requires alignment between a number of variables such as number of shifts, necessary skills during each shift, tasks required during a shift, and employee availability. Specify inputs for these variables using the tabs along the top of the OpenShift window.
+
+.OptaPlanner toolbar
+image::optashift-rostering/opta_tabs.png[]
+
+.Skills
+The skills section houses all skills necessary during any shift. For example, a 24-hour diner would require cooking, serving, bussing, and hosting skills, in addition to skills such as general human resources and restaurant operations skills.
+
+To enter these skills, click the Skills tab and type each one individually into the Skill Name field.
+
+image::optashift-rostering/opta_skill_name.png[]
+
+.Spots
+Spots refer to the various positions at the business. A diner’s spots include the kitchen, the serving area, the bussing stations, the front counter, the bar, and the office. You then pair each spot with one or more skills drawn from the Skills tab, into a list similar to the following table:
+
+.Spots Example
+|===
+|*Name* |*Required Skill*
+|Bar
+|Serving
+
+|Bussing Station 1
+|Bussing
+
+|Bussing Station 2
+|Bussing
+
+|Front Counter
+|Hosting, Cash register
+
+|Grill
+|Cooking
+
+|Prep
+|Food prep
+
+|Soups
+|Cooking
+
+|Serving area 1
+|Serving
+
+|Serving area 2
+|Serving
+
+|Office
+|HR
+|===
+
+Enter spot names into the Spot Name field at the bottom of the screen, then pair that spot with a required skill from the Required Skill drop-down menu.
+
+.Spot name example
+image::optashift-rostering/opta_spot_name.png[]
+
+.Employees
+The Employees tab contains a list of all people employed by the business and the skills they possess. Here, each person’s Skills field may contain multiple values to account for cross-trained employees.
+
+Add new employees by entering their names in the Employee Name field, and then specify all relevant skills in the Skills form, separating values with commas.
+
+.Employee name field
+image::optashift-rostering/opta_name.png[]
+
+.Spot Roster
+The Spot Roster is a table of all shifts during which the business is open, and all spots that must be manned during each shift. Spots can support multiple employees per shift, and may also be vacant if that role is unneeded for the given shift.
+
+Click the blue + icon in any cell to add an unassigned spot for the given shift. To remove a spot in the grid, click the blue X icon.
+
+.Spot roster example
+image::optashift-rostering/opta_spot_roster.png[]
+
+Once you have populated your shifts with the necessary spots, click the Solve button to create an optimized solution. The engine will take up to 30 seconds to create a fully optimal result. As it does, it fills each Unassigned cell with an employee with the proper skill and availability.
+
+.Employee Roster
+The Employee Roster displays the same schedule columns as the Spot Roster, but the rows contain employee names and the spots each employee is scheduled for during a given shift.
+
+.Employee roster example
+image::optashift-rostering/opta_emp_roster.png[]
+
+This screen also lets employees set their shift preferences that the engine will try to accommodate when creating the optimal solution. Employees can click one of three buttons in a shift to declare their preference.
+
+.Employee shift preferences
+image::optashift-rostering/opta_prefs.jpg[]
+
+From left to right in the figure above, the employees can select the following options:
+
+. Unavailable
+. Undesired but available
+. Desired
+
+Making no selection means the employee has no preference for the given shift.
+
+[NOTE]
+====
+The Unavailable option also applies for employees who call in sick or are on vacation. If an employee calls out just before a shift, a manager can indicate the scheduled employee’s unavailability and then re-optimize the schedule.
+====
+
+.Adjusting constraints
+Optaplanner uses both hard and soft constraints in its optimization calculations. During an optimization, the engine may not violate hard constraints, such as if an employee is out sick, or that an employee cannot work two spots in a single shift. The engine tries to adhere to soft constraints, such as an employee’s preference to not work a specific shift, but can violate them if the optimal solution requires it.
+
+You can adjust how the engine prioritizes constraints by editing the employeeRostering ScoreRules.drl file from the optashift-employee-rostering repository in github.
