@@ -1,94 +1,97 @@
 [#optashift-ER-openshift-deploy-proc]
 = Installing and running the employee rostering demonstration on Openshift
 
-This section describes quickly deploying the {PLANNER} Employee Rostering starter application to an Openshift instance for experimentation.
+This section describes quickly deploying the {PLANNER} Employee Rostering starter application to an Openshift instance.
 
-.Prepare deployment files
-* Unzip the add-ons distribution (e.g., rhdm-{VERSION}-add-ons.zip)
-* Unzip the employee-rostering zip found inside of the add-ons archive
-* Note the optashift-employee-rostering folder that is created which is used as the base folder in subsequent steps
+.Preparing deployment files
+. Unzip the add-ons distribution (e.g., rhdm-{VERSION}-add-ons.zip).
+. Unzip the employee-rostering zip found inside of the add-ons archive.
++
+[NOTE]
+====
+The optashift-employee-rostering folder that is created is the base folder in subsequent steps.
+====
 
-There are 2 options for quickly deploying this application to Openshift:
+There are two options for quickly deploying this application to Openshift:
 
-1. Using the source to image (S2I) template approach
-* A template pulls the source in from a Git repository and builds it as it deploys
-2. Using the provided, pre-built application archive
-* A template prepares the environment but does not re-build the application
+1. Using the Source to Image (S2I) template. The template pulls the source from a Git repository and builds it during the deployment.
++
+[NOTE]
+====
+This approach requires significantly more resources to complete than the binary deployment described next. If your OpenShift environment has less than 2GB of memory available, you must follow the binary deployment approach. This applies when using the Openshift Online Starter tier.
+====
++
+2. Using the provided, pre-built application archive. In this case, a template prepares the environment but does not re-build the application.
 
-NOTE: The S2I approach requires significantly more resources to complete than the binary deployment approach.  If your OpenShift environment has less than 2GB of memory available, you will need to follow the binary deployment approach.  This applies when using the Openshift Online Starter tier.
-
-== Deploy using source 2 image (S2I) template
+== Deploy using Source 2 Image (S2I) template
 .Procedure
-. Login into the Openshift web console
-
-. Open the project you wish to host the starter application
-
-. Select *Add to Project > Import YAML / JSON*
-
-. In the 'Import YAML / JSON' pop-up window:
-* Click browse and locate the optashift-employee-rostering-template.yaml file
-* From the optashift-employee-rostering folder noted in the preparation, this will be in *sources > openshift > templates*
-* Click 'create'
+. Log in to the Openshift web console.
+. Open the project to host the starter application.
+. Select *Add to Project > Import YAML / JSON*.
+. In the Import YAML / JSON dialog box:
+.. Click the Browse button and navigate to the optashift-employee-rostering-template.yaml file. If you are starting from the optashift-employee-rostering folder, access the file by clicking *sources > openshift > templates*.
+.. Click Create.
 +
 .Upload template window
 image::optashift-rostering/optashift-ER-s2i-step-one.png[]
 +
-. In the 'Add Template' pop-up, accept the defaults
-* 'Process template' is selected
-* 'Save Template' is deselected
-* Click 'continue'
+. In the Add Template dialog box, accept the default settings by clicking Continue.
 +
 .Add template window
 image::optashift-rostering/optashift-ER-s2i-step-two.png[]
 +
-. In the 'Import YAML/JSON' pop-up, accept these defaults as well
-* Click 'create'
+. In the Import YAML/JSON dialog box, accept the default settings by clicking Create.
 +
 .Configure template window
 image::optashift-rostering/optashift-ER-s2i-step-three.png[]
 +
-. Click 'close' in the 'Success' pop-up window
-. Allow the build and deployment to complete (may take a minute or two)
-* A link will appear when the deployment is complete that opens the application
+. In the Success dialog box, click Close.
+. Allow the build and deployment to complete. This may take several minutes. When the deployment completes, click the resulting link to open the application.
 +
-.Deployed application with link to open
+.Completed deployment and resulting link
 image::optashift-rostering/optashift-ER-s2i-step-four.png[]
 
 == Deploy with pre-built binary
-.Procedure
-NOTE: Binary deployments must be done using the 'oc' command line tools.  Please refer to the OpenShift documentation for installation steps.
 
-. Prepare the provided binary deployment
-* Working from the optashift-employee-rostering-{VERSION} distribution folder, note the 'sources' and 'binaries' folders
-* Make a copy of the optashift-employee-rostering-webapp-{VERSION}.war located in the binaries directory
-* Move the copy to the sources folder
-* Rename the copy to be 'ROOT.war'
-** This special application name causes it to deploy to the root context of the server
+.Procedure
+. Prepare the binary deployment.
 +
-. Create a project
+[NOTE]
+====
+You must conduct binary deployments using the oc command line tools.  See the OpenShift documentation for installation steps.
+====
++
+.. Working from the optashift-employee-rostering-{VERSION} distribution folder, open the Binaries folder.
+.. Copy the optashift-employee-rostering-webapp-{VERSION}.war.
+.. Move the copied file to the Sources folder and rename it as ROOT.war. The updated name instructs the application to deploy the file to the root context of the server.
++
+. Create a project using the following code snippet:
 +
 [source]
 ----
 oc new-project optashift-demo --display-name="Employee Rostering Demo"
 ----
 +
-. Create build and deployment configuration
-* A template file (optashift-employee-rostering-template-binary.yaml) is used to stub out the Openshift configuration (e.g., the route to expose the application so that it can be accessed from a browser)
+. Create a build and deployment configuration. Use a template file (optashift-employee-rostering-template-binary.yaml) to stub out the Openshift configuration, such as the route to expose the application to make it accessible to browsers.
 +
 [source]
 ----
 oc process -f openshift/templates/optashift-employee-rostering-template-binary.yaml -n optashift-demo | oc create -f - -n optashift-demo
 ----
-NOTE: If deploying to an existing project, be sure to replace all occurrances of 'optashift-demo' with the name of the actual project used.
-. Upload the binary file to trigger a deployment
++
+[NOTE]
+====
+If you are deploying to an existing project, replace all instances of "optashift-demo" with your project name.
+====
++
+. Upload the binary file to begin a deployment.
 +
 [source]
 ----
 oc start-build employee-rostering --from-file=ROOT.war
 ----
 +
-. View deployed application details
-* Click on the link listed in the routes section to open the starter application
+. View the deployed application details. Click the link in the Routes section to open the starter application.
 +
 .Openshift web console with deployed Employee Rostering starter application
 image::optashift-rostering/optashift-ER-binary-success.png[]
