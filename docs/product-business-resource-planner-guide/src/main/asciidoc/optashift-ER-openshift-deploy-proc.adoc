@@ -4,7 +4,7 @@
 You can deploy the {PLANNER} Employee Rostering starter application to an Openshift instance.
 
 .Preparing deployment files
-. Unzip the add-ons distribution (`rhdm-{VERSION}-add-ons.zip`).
+. Unzip the add-ons distribution (`rhdm-{PRODUCT_VERSION}-add-ons.zip`).
 . Unzip the employee-rostering zip file that is extracted from the add-ons archive.
 +
 [NOTE]
@@ -61,8 +61,8 @@ image::optashift-rostering/optashift-ER-s2i-step-four.png[]
 You must conduct binary deployments using the oc command line tools.  See the OpenShift documentation for installation steps.
 ====
 +
-.. Working from the `optashift-employee-rostering-{VERSION}` distribution folder, open the `binaries` folder.
-.. Copy the `optashift-employee-rostering-webapp-{VERSION}.war` to the `sources` folder.
+.. Working from the `optashift-employee-rostering-{MAVEN_ARTIFACT_VERSION}` distribution folder, open the `binaries` folder.
+.. Copy the `optashift-employee-rostering-webapp-{MAVEN_ARTIFACT_VERSION}.war` to the `sources` folder.
 .. Rename the file to `ROOT.war`. The updated name instructs the application server to deploy the file to the root context of the server.
 +
 . Using the command line, change to the `sources` folder.
