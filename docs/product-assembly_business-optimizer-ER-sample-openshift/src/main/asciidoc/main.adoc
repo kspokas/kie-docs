@@ -14,7 +14,7 @@ As a business rules developer, you can test and interact with the {PLANNER} func
 
 .Prerequisite
 * You have downloaded the {PRODUCT} add-ons distribution,  which includes the 'employee-rostering' starter application
-* You have ccess to a deployed OpenShift environment. For details, see the documentation for the OpenShift product that you use.
+* You have access to a deployed OpenShift environment. For details, see the documentation for the OpenShift product that you use.
 
 // Modules - concepts, procedures, refs, etc.
 include::product-business-resource-planner-guide/optashift-ER-openshift-deploy-proc.adoc[levelset=+1]

@@ -5,13 +5,13 @@ The employee rostering starter application assigns employees to shifts on variou
 
 Optimal employee rostering must take a number of variables into account. For example, different skills can be necessary for shifts in different positions. Also, some employees might be unavailable for some time slots or might prefer  a particular time slot. You can specify inputs for these variables using the tabs along the top of the application window.
 
-.OptaPlanner toolbar
+.Employee rostering toolbar
 image::optashift-rostering/opta_tabs.png[]
 
 == Entering source information for employee rostering
 .Tenants
 
-In the *TENANT* field at the top right corner of the application window, you can select one of the predefined tenants. Each tenant represents an independent set of data; any change in the data for one tenant does not affect any other tenants. 
+In the *TENANT* field at the top right corner of the application window, you can select one of the predefined tenants. Each tenant represents an independent set of data; any change in the data for one tenant does not affect any other tenants.
 
 You can switch between tenants to use several independent data sets, for example, to prepare employee rosters for different locations.
 
@@ -94,9 +94,9 @@ image::optashift-rostering/opta_spot_roster.png[]
 To fill the employee roster:
 
 . Populate your shifts and spots with required employees as necessary.
-. Click the Solve button to create an optimized solution. 
+. Click the Solve button to create an optimized solution.
 
-The engine takes up to 30 seconds to create a fully optimal result. 
+The engine takes up to 30 seconds to create a fully optimal result.
 
 When the optimal result is available, the Spot Roster window displays the name of the assigned employee for each spot and shift.
 
@@ -129,4 +129,4 @@ The Unavailable option also applies for employees who call in sick or are on vac
 ====
 
 == Constraints
-The OptaPlanner rules for this starter application use  both hard and soft constraints. During an optimization, the engine may not violate hard constraints, for example, if an employee is unavailable (out sick), or that an employee cannot work two spots in a single shift. The engine tries to adhere to soft constraints, such as an employee’s preference to not work a specific shift, but can violate them if the optimal solution requires it.
+The {PLANNER} rules for this starter application use  both hard and soft constraints. During an optimization, the engine may not violate hard constraints, for example, if an employee is unavailable (out sick), or that an employee cannot work two spots in a single shift. The engine tries to adhere to soft constraints, such as an employee’s preference to not work a specific shift, but can violate them if the optimal solution requires it.
