@@ -1,0 +1,29 @@
+[id='optashift-ER-overview-source-con']
+= Overview of the source code of the employee rostering template
+
+The employee rostering template consists of the following principal components:
+
+* The _server_ that implements the rostering logic using {PLANNER} and provides a REST API.
+* The _client_ that implements a user interface using the `gwt` library and calls the server using the REST API.
+
+While some code is shared between the client and the server, you can build and use these components independently. In particular, you can implement a different user interface and use the REST API to call the server.
+
+In addition to the two main components, the employee rostering template contains a generator of random source data (useful for demonstration and testing purposes) and a benchmarking application.
+
+.Packages and key classes
+The Java source code of the employee rostering template contains several packages. Each of these packages includes a separate aven project file (`pom.xml`), but they are intended for building in a common project. 
+
+The packages contain a number of files, including Java classes. This document lists the classes and other files that you are most likely to need to modify.
+
+* `optashift-employee-rostering-benchmark` package: contains an additional application that generates random data and benchmarks the solution. This application is not built by default.
+
+* `optashift-employee-rostering-distribution` package: contains readme files.
+
+* `optashift-employee-rostering-gwtui` package: contains the client application with the user interface, developed using the `gwt` toolkit.
+
+* `optashift-employee-rostering-server` package: contains the server application tha uses {PLANNER} to perform the rostering calculation.
+** `src/main/resources/org/optaplanner/openshift/employeerostering/server/solver/employeeRosteringScoreRules.drl` file: contains the rules for the {PLANNER} calculation. These rules are written in the Drools rules language. You can modify the rules to change the logic for employee rostering.
+** `src/main/resources/org/optaplanner/openshift/employeerostering/server/roster/rosterGenerator.java` class: generates random input data for demonstration and testing purposes. If you change the requires input data, you need to change the generator accordingly.
+
+* `optashift-employee-rostering-shared` package: contains the data structures shared between the server and client applications. In particular, under `src/main/resources/org/optaplanner/openshift/employeerostering/shared`, this package incudes the Java classes that define the input data for the rostering calculations.
+
