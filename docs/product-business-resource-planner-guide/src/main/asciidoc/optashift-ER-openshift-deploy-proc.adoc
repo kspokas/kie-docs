@@ -104,3 +104,4 @@ image::optashift-rostering/optashift-ER-binary-success.png[]
 //. Build from local source
 // ./provision.sh setup employee-rostering --binary
 // This doesn't work in current release
+// TODO: revisit deploying from local build once issue is resolved: https://issues.jboss.org/browse/BXMSPROD-1
