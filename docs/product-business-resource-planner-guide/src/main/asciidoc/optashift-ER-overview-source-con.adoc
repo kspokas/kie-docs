@@ -13,7 +13,7 @@ In addition to the two main components, the employee rostering template contains
 .Packages and key classes
 The Java source code of the employee rostering template contains several packages. Each of these packages includes a separate aven project file (`pom.xml`), but they are intended for building in a common project. 
 
-The packages contain a number of files, including Java classes. This document lists the classes and other files that you are most likely to need to modify.
+The packages contain a number of files, including Java classes. This document lists all the packages, as well as the the classes and other files that contain the key information for the employee rostering calculations.
 
 * `optashift-employee-rostering-benchmark` package: contains an additional application that generates random data and benchmarks the solution. This application is not built by default.
 
@@ -25,5 +25,14 @@ The packages contain a number of files, including Java classes. This document li
 ** `src/main/resources/org/optaplanner/openshift/employeerostering/server/solver/employeeRosteringScoreRules.drl` file: contains the rules for the {PLANNER} calculation. These rules are written in the Drools rules language. You can modify the rules to change the logic for employee rostering.
 ** `src/main/resources/org/optaplanner/openshift/employeerostering/server/roster/rosterGenerator.java` class: generates random input data for demonstration and testing purposes. If you change the requires input data, you need to change the generator accordingly.
 
-* `optashift-employee-rostering-shared` package: contains the data structures shared between the server and client applications. In particular, under `src/main/resources/org/optaplanner/openshift/employeerostering/shared`, this package incudes the Java classes that define the input data for the rostering calculations.
+* `optashift-employee-rostering-shared` package: contains the data structures shared between the server and client applications. In particular, under `src/main/resources/org/optaplanner/openshift/employeerostering/shared`, this package includes the Java classes that define the input data for the rostering calculations:
+** `employee/EmployeeAvailability.java` defines availability information for an employee. For every time slot, an employee can be unavailable, available, or it can be a preferred timeslot for the employee.
+** `employee/Employee.java` defines an employee. An employee has a name and a list of skills. Skills are represented by `EmployeeSkillProficiency` objects.
+** `employee/EmployeeSkillProficiency.java` defined the availability of a skill for an employee. It is possible to extend this class to define different employee proficiency levels for skills (basic, advanced, and so on).
+** `employee/EmployeeAvailabilityView.java` ???
+** `roster/Roster.java` defines the calculated rostering information. 
+** `shift/Shift.java` defines a shift to which an employee can be assigned. 
+** `skill/Skill.java` defines a skill that an employee can have.
+ 
+ 
 
