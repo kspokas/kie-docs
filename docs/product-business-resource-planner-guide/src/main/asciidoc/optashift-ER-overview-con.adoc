@@ -5,6 +5,8 @@ The employee rostering starter application assigns employees to shifts on variou
 
 Optimal employee rostering must take a number of variables into account. For example, different skills can be necessary for shifts in different positions. Also, some employees might be unavailable for some time slots or might prefer  a particular time slot. You can specify inputs for these variables using the tabs along the top of the application window.
 
+IMPORTANT: in the current release, the employee rostering starter application fills a fixed amount of shifts in predefined dates. You can not change the dates or shifts. Therefore, it is not possible to use this application for production tasks.
+
 .Employee rostering toolbar
 image::optashift-rostering/opta_tabs.png[]
 
