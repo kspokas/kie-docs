@@ -1,23 +1,30 @@
-[id='assembly_optimizer-running-employee-rostering-openshift']
+[id='assembly_optimizer-modifying-ER-template-IDE']
 
 include::product-shared-docs/document-attributes.adoc[]
 
-= Running the employee roster sample for Business Optimizer
+= Running and modifying the employee roster starter application using and IDE
 // Context attribute is assembly specific and enables module reuse between assemblies.
 :imagesdir: topics/product-shared-docs/images
-:context: running-employee-rostering-openshift
+:context: employee-rostering-ide
 include::product-shared-docs/author-group.adoc[]
 
 
 // Purpose statement for the assembly
-As a business rules developer, you can test and interact with the {PLANNER} functionality by quickly deploying the 'employee-rostering' starter project included in the {PRODUCT} distribution to OpenShift.
+As a business rules developer, you can use an IDE to build, run, and modify the 'employee-rostering' starter application that uses the {PLANNER} functionality.
 
-.Prerequisite
+.Prerequisites
 * {PRODUCT} "add-ons" distribution has been downloaded which includes the 'employee-rostering' starter application
-* Access to a deployed OpenShift environment. For details, see the documentation for the OpenShift product that you use.
+* An indegrated development environment, such as Eclipse (including Red Hat JBoss Developer Studio) or IntelliJ IDEA.
+* An understanding of the Java language
 
 // Modules - concepts, procedures, refs, etc.
 include::product-business-resource-planner-guide/optashift-ER-overview-con.adoc[leveloffset=+1]
+include::product-business-resource-planner-guide/optashift-ER-building-con.adoc[leveloffset=+1]
+include::product-business-resource-planner-guide/optashift-ER-building-commandline-proc.adoc[leveloffset=+2]
+include::product-business-resource-planner-guide/optashift-ER-overview-source-con.adoc[leveloffset=+1]
+include::product-business-resource-planner-guide/optashift-ER-modifying-proc.adoc[leveloffset=+1]
+include::product-business-resource-planner-guide/optashift-ER-modifying-sample-weekend-proc.adoc[leveloffset=+2]
+include::product-business-resource-planner-guide/optashift-ER-modifying-sample-gender-proc.adoc[leveloffset=+2]
 
 // Versioning info
 include::product-shared-docs/versioning-information.adoc[]
