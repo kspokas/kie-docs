@@ -17,4 +17,4 @@ The KIE remote API client provides a lightweight approach to invoking a remote D
 
 == Calling a DMN service on a remote server using REST APIs directly
 
-Directly interacting with the REST endpoints of the KIE execution server provides the most separation between the calling code and the decision logic definition. The calling code is completely free of direct dependencies, and you can implement it in an entirely different development platform such as node.js or .net.
+Directly interacting with the REST endpoints of the KIE execution server provides the most separation between the calling code and the decision logic definition. The calling code is completely free of direct dependencies, and you can implement it in an entirely different development platform such as `node.js` or `.net`.
