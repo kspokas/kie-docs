@@ -14,7 +14,7 @@ When you unzip the employee-rostering zip file, the `optashift-employee-rosterin
 
 There are two options for quickly deploying this application to Openshift:
 
-1. Using the Source to Image (S2I) template . This template pulls the source for the application from a Git repository and builds it during the deployment.
+1. Using the Source to Image (S2I) template. This template pulls the source for the application from a Git repository and builds it during the deployment.
 
 2. Using the pre-built binary application archive that is provided in the distribution. In this case, a template prepares the environment but does not rebuild the application.
 
@@ -25,12 +25,10 @@ The S2I approach requires significantly more resources to complete than the bina
 
 == Deploying using the Source to Image (S2I) template
 .Procedure
-. Log in to the OpenShift web console.
-. Open the project that is to host the starter application.
-. Select *Add to Project > Import YAML / JSON*.
-. In the Import YAML / JSON dialog:
-.. Click the *Browse* button and navigate to the `optashift-employee-rostering-template.yaml` file. Starting from the `optashift-employee-rostering` folder, access the file by clicking *sources > openshift > templates*.
-.. Click *Create*.
+. Log in to the OpenShift web console and click Import YAML/JSON in the upper right corner.
+. Select the project to add to from the Add to Project drop down menu, or select Create Project to create a new one. If creating a new project, enter a new project name, display name, and description.
+. Click the *Browse* button and navigate to the `optashift-employee-rostering-template.yaml` file. Starting from the `optashift-employee-rostering` folder, access the file by clicking *sources > openshift > templates*.
+. Click *Create*.
 +
 .Upload template window
 image::optashift-rostering/optashift-ER-s2i-step-one.png[]
@@ -46,10 +44,15 @@ image::optashift-rostering/optashift-ER-s2i-step-two.png[]
 image::optashift-rostering/optashift-ER-s2i-step-three.png[]
 +
 . In the Success dialog box, click *Close*.
-. Wait for the build and deployment to complete. This might take several minutes. When the deployment completes, click the resulting link to open the application.
+. Wait for the build and deployment to complete. This might take several minutes. When the deployment completes, click the link in the upper right corner and above the shaded bar to open the application.
 +
 .Completed deployment and resulting link
 image::optashift-rostering/optashift-ER-s2i-step-four.png[]
++
+[NOTE]
+====
+Perform a hard refresh of your browser page if the web app does not open after clicking the link.
+====
 
 == Deploying with pre-built binary
 
@@ -76,7 +79,7 @@ oc new-project optashift-demo --display-name="Employee Rostering Demo"
 +
 [NOTE]
 ====
-Alternatively, you can use an existing project. In this case, replace all instances of `optashift-demo` with your project name.
+Alternatively, you can use an existing project. In this case, replace all instances of `optashift-demo` in this procedure with your project name.
 ====
 +
 . Create a build and deployment configuration. Use the `optashift-employee-rostering-template-binary.yaml` template file to set the OpenShift configuration, such as the route to expose the application to make it accessible to browsers.
