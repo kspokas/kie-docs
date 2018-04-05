@@ -79,26 +79,34 @@ The Employees tab contains a list of all people employed by the business and the
 
 .For each employee:
 . Enter the name in the *Employee Name* field at the bottom of the screen.
-. Specify all relevant skills in the *Skills* field. To specify several skills, separate the values with commas.
+. Specify a relevant skill by typing in the *Skills* field and selecting an item from the suggestion list that appears. To specify several skills, repeat this process before proceeding.
 . Click *Add*.
 
 .Employee name field
 image::optashift-rostering/opta_name.png[]
 
 .Spot Roster
-The Spot Roster is a table of all shifts (time slots) during which the business is open and all spots that must be manned during each shift. Each required employee is represented by a red rectangle.
+The Spot Roster is a table of all shifts (time slots) during which the business is open and all spots that must be manned during each shift. Each required spot is represented by a red rectangle.
 
 Spots can support multiple employees per shift. If a spot is not required for a shift, you can remove the spot completely from the roster.
 
-Click the blue *+* icon in any cell to add a required employee for the given spot and shift. To remove a required employee from a spot and shift, click the blue *X* icon in the corresponding cell of the grid.
+Click the blue *+* icon in any cell to add a new spot for the given shift. To remove a required spot completely from a shift, click the blue *X* icon in the corresponding cell of the grid.
 
 .Spot roster example
 image::optashift-rostering/opta_spot_roster.png[]
+
+.Spot icons detail (lock, edit, remove, add)
+image::optashift-rostering/opta_spot_icons.png[]
 
 == Creating an optimal employee roster
 To fill the employee roster:
 
 . Populate your shifts and spots with required employees as necessary.
+.. Click the *edit* icon of a spot to open the "Select employee" modal window.
+.. Choose the employee from the list and click the *Assign* button.
+.. The employee is now locked for the given spot and will not be changed by the solver.
+.. Click the *lock* icon on the spot to allow the solver to change an assignment.
+.. Click the *remove* icon to undo an employee assignment to a spot.
 . Click the Solve button to create an optimized solution.
 
 The engine takes up to 30 seconds to create a fully optimal result.
@@ -113,7 +121,7 @@ image::optashift-rostering/opta_emp_roster.png[]
 
 == Setting employee availability
 
-You can use the Employee Roster screen to set the shift preferences of employees. The engine attempts to accommodate the preferences when creating the optimal solution. You can can one of three buttons in a shift to declare preference for an employee.
+You can use the Employee Roster screen to set the shift preferences of employees. The engine attempts to accommodate the preferences when creating the optimal solution. You can click one of three buttons in a shift to declare preference for an employee.
 
 .Employee shift preferences
 image::optashift-rostering/opta_prefs.jpg[]
